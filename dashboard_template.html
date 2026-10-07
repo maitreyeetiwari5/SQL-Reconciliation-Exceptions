@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash receipts reconciliation: Q1 2026 exceptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page: #f6f7f9;
+    --panel: #ffffff;
+    --ink: #1d2733;
+    --muted: #5b6776;
+    --rule: #d8dde4;
+    --cleared: #2b7a6b;
+    --cleared-soft: #dcebe7;
+    --flag: #c9780b;
+    --flag-soft: #f6e6cf;
+    --high: #a8321f;
+    --focus: #1f5fbf;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font: 400 15px/1.5 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 40px 24px 72px; }
+  h1 { font-size: 26px; line-height: 1.25; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+  h2 { font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+  p { margin: 0; }
+  .lede { color: var(--muted); max-width: 66ch; }
+  .note { color: var(--muted); font-size: 13px; }
+  section { border-top: 1px solid var(--rule); padding-top: 28px; margin-top: 36px; }
+  header + section { margin-top: 32px; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  /* ---------- tie-out hero ---------- */
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 48px; align-items: start; }
+  .tie { display: grid; gap: 22px; margin-top: 18px; }
+  .tie-row .tie-head { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; margin-bottom: 6px; }
+  .tie-row .tie-head span:last-child { color: var(--muted); }
+  .bar { display: flex; height: 22px; background: var(--flag-soft); overflow: hidden; }
+  .bar .ok { background: var(--cleared); width: 0; transition: width 900ms cubic-bezier(.2,.7,.2,1); }
+  .bar .flag { background: var(--flag); flex: 1; }
+  .legend { display: flex; gap: 20px; margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+  .kpis { display: grid; gap: 22px; padding-top: 4px; }
+  .kpi b { display: block; font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; }
+  .kpi span { color: var(--muted); font-size: 13px; }
+
+  /* ---------- breakdown ---------- */
+  .cols { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px; }
+  .rows { display: grid; margin-top: 12px; }
+  .brow {
+    display: grid; grid-template-columns: 160px minmax(0, 1fr) 92px; gap: 12px; align-items: center;
+    padding: 7px 8px; margin: 0 -8px; border: 0; background: none; text-align: left; width: calc(100% + 16px);
+  }
+  button.brow { cursor: pointer; }
+  button.brow:hover { background: #eef1f5; }
+  button.brow[aria-pressed="true"] { background: var(--flag-soft); }
+  .brow .t { font-size: 14px; }
+  .brow .track { height: 10px; background: transparent; }
+  .brow .fill { height: 100%; background: var(--flag); min-width: 2px; }
+  .brow .n { text-align: right; font-size: 14px; }
+  .brow .n small { color: var(--muted); font-size: 12px; margin-left: 4px; }
+  .aging .brow { grid-template-columns: 96px minmax(0, 1fr) 92px; cursor: default; }
+  .aging .fill { background: #8896a6; }
+  .clear { border: 0; background: none; padding: 0; color: var(--focus); cursor: pointer; font-size: 13px; text-decoration: underline; }
+
+  /* ---------- tolerance evidence ---------- */
+  .tol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; margin-top: 14px; }
+  table.mini { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.mini caption { text-align: left; color: var(--muted); font-size: 13px; padding-bottom: 6px; }
+  table.mini th, table.mini td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--rule); font-weight: 400; }
+  table.mini th:first-child, table.mini td:first-child { text-align: left; }
+  table.mini thead th { color: var(--muted); font-size: 13px; }
+  table.mini tr.default td { background: var(--cleared-soft); font-weight: 600; }
+
+  /* ---------- exceptions table ---------- */
+  .tools { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 14px 0 12px; }
+  .tools label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .tools select, .tools input {
+    font: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--ink); border-radius: 3px;
+  }
+  .tools input { width: 220px; }
+  .count { margin-left: auto; font-size: 13px; color: var(--muted); }
+  .scroll { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); }
+  table.exc { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 14px; }
+  table.exc th {
+    text-align: left; font-weight: 500; font-size: 13px; color: var(--muted); padding: 10px 12px;
+    border-bottom: 1px solid var(--rule); white-space: nowrap; background: var(--panel); position: sticky; top: 0;
+  }
+  table.exc th button { border: 0; background: none; padding: 0; cursor: pointer; color: inherit; font-weight: 500; }
+  table.exc th button[aria-sort="ascending"]::after { content: " \2191"; }
+  table.exc th button[aria-sort="descending"]::after { content: " \2193"; }
+  table.exc td { padding: 9px 12px; border-bottom: 1px solid #eceff3; vertical-align: top; }
+  table.exc th.num, table.exc td.num { text-align: right; }
+  tr.item { cursor: pointer; }
+  tr.item:hover td { background: #f3f5f8; }
+  tr.item.open td { background: #f3f5f8; border-bottom-color: transparent; }
+  tr.item td:first-child { white-space: nowrap; }
+  .sev { display: inline-flex; align-items: center; gap: 7px; }
+  .sev::before { content: ""; width: 8px; height: 8px; background: var(--muted); }
+  .sev.HIGH::before { background: var(--high); }
+  .sev.MEDIUM::before { background: var(--flag); }
+  .sev.LOW::before { background: #9aa6b4; }
+  tr.detail td { background: #f3f5f8; padding: 2px 12px 16px 12px; }
+  .detail-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 760px; }
+  .detail-grid div b { display: block; font-weight: 500; font-size: 13px; color: var(--muted); }
+  .detail-note { margin-top: 10px; max-width: 70ch; }
+  .empty { padding: 28px 12px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .hero, .cols, .tol { grid-template-columns: 1fr; gap: 32px; }
+    .kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .brow { grid-template-columns: 120px minmax(0, 1fr) 84px; }
+    .count { margin-left: 0; width: 100%; }
+  }
+  @media (max-width: 520px) {
+    .tie-row .tie-head { flex-direction: column; gap: 0; }
+    .kpis { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .bar .ok { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Q1 2026 cash receipts: bank, AR subledger and GL tie-out</h1>
+    <p class="lede">Every customer receipt should appear once in the bank statement, once in AR, and once in the GL. This is what a SQL matching engine could not tie out across those three systems, ranked by dollars at risk. All data is synthetic.</p>
+  </header>
+
+  <section aria-labelledby="tie-h">
+    <div class="hero">
+      <div>
+        <h2 id="tie-h">How much cleared without review</h2>
+        <p class="note" id="tie-note"></p>
+        <div class="tie" id="tie"></div>
+        <div class="legend">
+          <span><i style="background:var(--cleared)"></i>Matched across all three systems</span>
+          <span><i style="background:var(--flag)"></i>Needs an analyst</span>
+        </div>
+      </div>
+      <div class="kpis" id="kpis"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cols">
+      <div>
+        <h2>Exceptions by type</h2>
+        <p class="note">Select a type to filter the table below. <button class="clear" id="clear-type" hidden>Show all types</button></p>
+        <div class="rows" id="by-type"></div>
+      </div>
+      <div class="aging">
+        <h2>How old they are</h2>
+        <p class="note">Days from the earliest date on the item to quarter end.</p>
+        <div class="rows" id="aging"></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="tol-h">
+    <h2 id="tol-h">Why these tolerances</h2>
+    <p class="lede" id="tol-note"></p>
+    <div class="tol" id="tol"></div>
+  </section>
+
+  <section aria-labelledby="exc-h">
+    <h2 id="exc-h">Exception queue</h2>
+    <div class="tools">
+      <label>Severity
+        <select id="f-sev">
+          <option value="">All</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option>
+        </select>
+      </label>
+      <label>Search
+        <input id="f-q" type="search" placeholder="Reference, customer or ID" autocomplete="off">
+      </label>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="scroll">
+      <table class="exc">
+        <thead><tr id="thead"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+
+const LABEL = {
+  MISSING_IN_GL: "Missing in GL", MISSING_IN_SL: "Missing in AR", MISSING_IN_BANK: "Missing in bank",
+  BANK_ONLY: "Bank credit only", SL_ONLY: "AR application only", GL_ONLY: "GL entry only",
+  AMOUNT_MISMATCH: "Amount mismatch", TIMING: "Timing gap", DUPLICATE_POSTING: "Duplicate posting",
+  AMBIGUOUS_MATCH: "Ambiguous match"
+};
+const SRC_LABEL = { BANK: "Bank statement", SL: "AR subledger", GL: "General ledger" };
+const usd0 = n => "$" + Math.round(n).toLocaleString("en-US");
+const usd2 = n => n == null ? "none" : "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const int = n => Number(n).toLocaleString("en-US");
+const pct1 = n => (n * 100).toFixed(1) + "%";
+const el = (tag, attrs = {}, text) => {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (text != null) e.textContent = text;
+  return e;
+};
+
+const S = DATA.summary;
+const state = { type: "", sev: "", q: "", sortKey: "exc_id", sortDir: 1, open: null };
+
+/* ---------- tie-out ---------- */
+(function tie() {
+  document.getElementById("tie-note").textContent =
+    `${int(S.total_rows)} records across the three systems. Rows count as cleared only when all three agree on amount (within $${DATA.cfg.tol_amount.toFixed(2)}) and dates (within ${DATA.cfg.tol_days} days).`;
+  const host = document.getElementById("tie");
+  const max = Math.max(...DATA.funnel.map(f => f.total_rows));
+  DATA.funnel.forEach(f => {
+    const row = el("div", { class: "tie-row" });
+    const head = el("div", { class: "tie-head" });
+    head.append(el("span", {}, `${SRC_LABEL[f.src]}, ${int(f.total_rows)} rows`),
+                el("span", {}, `${int(f.clean_rows)} cleared, ${int(f.exception_rows)} for review`));
+    const bar = el("div", { class: "bar", role: "img",
+      "aria-label": `${SRC_LABEL[f.src]}: ${f.clean_rows} of ${f.total_rows} rows cleared` });
+    bar.style.width = (f.total_rows / max * 100) + "%";
+    const ok = el("div", { class: "ok" });
+    ok.dataset.w = (f.clean_rows / f.total_rows * 100) + "%";
+    bar.append(ok, el("div", { class: "flag" }));
+    row.append(head, bar);
+    host.append(row);
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    host.querySelectorAll(".ok").forEach(o => o.style.width = o.dataset.w)));
+
+  const k = document.getElementById("kpis");
+  [[pct1(S.auto_match_rate), "of rows cleared automatically"],
+   [int(S.exceptions), "exceptions to work"],
+   [usd0(S.exposure), "total exposure on those exceptions"]].forEach(([v, l]) => {
+    const d = el("div", { class: "kpi" });
+    d.append(el("b", {}, v), el("span", {}, l));
+    k.append(d);
+  });
+})();
+
+/* ---------- by type (acts as the type filter) ---------- */
+function drawByType() {
+  const host = document.getElementById("by-type");
+  host.replaceChildren();
+  const max = Math.max(...DATA.by_type.map(t => t.n));
+  DATA.by_type.forEach(t => {
+    const b = el("button", { class: "brow", type: "button", "aria-pressed": String(state.type === t.exception_type) });
+    const track = el("div", { class: "track" });
+    const fill = el("div", { class: "fill" });
+    fill.style.width = (t.n / max * 100) + "%";
+    track.append(fill);
+    const n = el("div", { class: "n" }, String(t.n));
+    n.append(el("small", {}, usd0(t.exposure)));
+    b.append(el("div", { class: "t" }, LABEL[t.exception_type] || t.exception_type), track, n);
+    b.addEventListener("click", () => {
+      state.type = state.type === t.exception_type ? "" : t.exception_type;
+      drawByType(); drawTable();
+    });
+    host.append(b);
+  });
+  document.getElementById("clear-type").hidden = !state.type;
+}
+document.getElementById("clear-type").addEventListener("click", () => { state.type = ""; drawByType(); drawTable(); });
+
+/* ---------- aging ---------- */
+(function aging() {
+  const host = document.getElementById("aging");
+  const max = Math.max(...DATA.aging.map(a => a.n));
+  DATA.aging.forEach(a => {
+    const r = el("div", { class: "brow" });
+    const track = el("div", { class: "track" });
+    const fill = el("div", { class: "fill" });
+    fill.style.width = (a.n / max * 100) + "%";
+    track.append(fill);
+    const n = el("div", { class: "n" }, String(a.n));
+    n.append(el("small", {}, usd0(a.exposure)));
+    r.append(el("div", { class: "t" }, a.bucket), track, n);
+    host.append(r);
+  });
+})();
+
+/* ---------- tolerance evidence ---------- */
+(function tol() {
+  const V = DATA.validation;
+  document.getElementById("tol-note").textContent =
+    `The engine was scored against ${V.seeded_total} breaks planted in the data, then re-run at other tolerances. Too tight and normal noise (bank fees, posting lag) floods the queue with false alarms. Too loose and real breaks get absorbed as matches. Highlighted rows are the settings used here.`;
+  const host = document.getElementById("tol");
+  const make = (caption, firstHead, rows, fmt) => {
+    const t = el("table", { class: "mini" });
+    t.append(el("caption", {}, caption));
+    const h = el("thead"); const hr = el("tr");
+    [firstHead, "Breaks missed", "False alarms"].forEach(x => hr.append(el("th", { scope: "col" }, x)));
+    h.append(hr); t.append(h);
+    const b = el("tbody");
+    rows.forEach(r => {
+      const tr = el("tr", r.is_default ? { class: "default" } : {});
+      tr.append(el("td", {}, fmt(r.tol)), el("td", {}, String(r.missed)), el("td", {}, String(r.false_exceptions)));
+      b.append(tr);
+    });
+    t.append(b); return t;
+  };
+  host.append(
+    make(`Amount tolerance (date tolerance held at ${DATA.cfg.tol_days} days)`, "Amount", DATA.sweep.amount, v => usd2(v)),
+    make(`Date tolerance (amount tolerance held at $${DATA.cfg.tol_amount.toFixed(2)})`, "Days", DATA.sweep.days, v => v + " days")
+  );
+})();
+
+/* ---------- exception table ---------- */
+const COLS = [
+  { key: "exc_id", label: "ID" },
+  { key: "exception_type", label: "Type" },
+  { key: "severity", label: "Severity", rank: { HIGH: 1, MEDIUM: 2, LOW: 3 } },
+  { key: "systems_present", label: "Found in" },
+  { key: "reference", label: "Reference" },
+  { key: "customer_id", label: "Customer" },
+  { key: "amount_at_risk", label: "Exposure", num: true },
+  { key: "age_days", label: "Age (days)", num: true }
+];
+(function head() {
+  const tr = document.getElementById("thead");
+  COLS.forEach(c => {
+    const th = el("th", { scope: "col", class: c.num ? "num" : "" });
+    const b = el("button", { type: "button" }, c.label);
+    b.dataset.key = c.key;
+    b.addEventListener("click", () => {
+      state.sortDir = state.sortKey === c.key ? -state.sortDir : 1;
+      state.sortKey = c.key; state.open = null; drawTable();
+    });
+    th.append(b); tr.append(th);
+  });
+})();
+
+function visibleRows() {
+  const q = state.q.trim().toLowerCase();
+  let rows = DATA.exceptions.filter(e =>
+    (!state.type || e.exception_type === state.type) &&
+    (!state.sev || e.severity === state.sev) &&
+    (!q || [e.exc_id, e.reference, e.customer_id, e.bank_id, e.sl_id, e.gl_id].some(v => v && String(v).toLowerCase().includes(q))));
+  const col = COLS.find(c => c.key === state.sortKey);
+  const val = e => col.rank ? col.rank[e[col.key]] : e[col.key];
+  rows.sort((a, b) => {
+    const x = val(a), y = val(b);
+    if (x == null && y == null) return 0;
+    if (x == null) return 1; if (y == null) return -1;
+    return (x < y ? -1 : x > y ? 1 : 0) * state.sortDir;
+  });
+  return rows;
+}
+
+function drawTable() {
+  document.querySelectorAll("#thead button").forEach(b => {
+    b.removeAttribute("aria-sort");
+    if (b.dataset.key === state.sortKey) b.setAttribute("aria-sort", state.sortDir === 1 ? "ascending" : "descending");
+  });
+  const rows = visibleRows();
+  document.getElementById("count").textContent =
+    `Showing ${rows.length} of ${DATA.exceptions.length} exceptions, ${usd0(rows.reduce((s, r) => s + r.amount_at_risk, 0))} exposure`;
+  const body = document.getElementById("tbody");
+  body.replaceChildren();
+  if (!rows.length) {
+    const tr = el("tr"); const td = el("td", { colspan: COLS.length, class: "empty" }, "No exceptions match these filters.");
+    tr.append(td); body.append(tr); return;
+  }
+  rows.forEach(e => {
+    const open = state.open === e.exc_id;
+    const tr = el("tr", { class: "item" + (open ? " open" : ""), tabindex: "0", "aria-expanded": String(open) });
+    const sev = el("span", { class: "sev " + e.severity }, e.severity[0] + e.severity.slice(1).toLowerCase());
+    const cells = [
+      e.exc_id, LABEL[e.exception_type] || e.exception_type, sev, e.systems_present.trim().replace(/ /g, " + "),
+      e.reference || "no reference", e.customer_id || "none", usd2(e.amount_at_risk), String(e.age_days)
+    ];
+    cells.forEach((c, i) => {
+      const td = el("td", COLS[i].num ? { class: "num" } : {});
+      if (c instanceof Node) td.append(c); else td.textContent = c;
+      tr.append(td);
+    });
+    const toggle = () => { state.open = open ? null : e.exc_id; drawTable(); };
+    tr.addEventListener("click", toggle);
+    tr.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); } });
+    body.append(tr);
+    if (open) {
+      const d = el("tr", { class: "detail" });
+      const td = el("td", { colspan: COLS.length });
+      const grid = el("div", { class: "detail-grid" });
+      [["Bank statement", e.bank_id, e.bank_amount], ["AR subledger", e.sl_id, e.sl_amount], ["General ledger", e.gl_id, e.gl_amount]]
+        .forEach(([name, id, amt]) => {
+          const g = el("div");
+          g.append(el("b", {}, name), document.createTextNode(id ? `${id}, ${usd2(amt)}` : "no record"));
+          grid.append(g);
+        });
+      td.append(grid, el("p", { class: "detail-note" }, e.review_note));
+      d.append(td); body.append(d);
+    }
+  });
+}
+
+document.getElementById("f-sev").addEventListener("change", ev => { state.sev = ev.target.value; state.open = null; drawTable(); });
+document.getElementById("f-q").addEventListener("input", ev => { state.q = ev.target.value; state.open = null; drawTable(); });
+
+drawByType();
+drawTable();
+</script>
+</body>
+</html>

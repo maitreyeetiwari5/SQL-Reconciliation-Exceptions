@@ -1,0 +1,131 @@
+exc_id,exception_type,severity,systems_present,bank_id,sl_id,gl_id,reference,customer_id,bank_amount,sl_amount,gl_amount,amount_at_risk,date_gap,age_days,review_note
+E0001,TIMING,HIGH,BANK SL GL,B000168,S000174,G000637,10214,C034,40115.5,40115.5,40115.5,40115.5,28,79,Ties across all three systems but dates span 28 days (tolerance 7). Pending analyst review.
+E0002,DUPLICATE_POSTING,HIGH,GL,,,G000866,11112,,,,27120.68,27120.68,1,39,Same reference and amount already posted once in GL (G000845). Pending analyst review.
+E0003,MISSING_IN_SL,HIGH,BANK GL,B000815,,G000818,11053,,26238.07,,26238.07,26238.07,2,44,In bank and GL; no AR subledger application found. Pending analyst review.
+E0004,MISSING_IN_GL,HIGH,BANK SL ,B000323,S000314,,10989,C032,25585.12,25585.12,,25585.12,0,70,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0005,MISSING_IN_BANK,HIGH,SL GL,,S000481,G000448,10784,C018,,23313.29,23313.29,23313.29,0,61,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0006,DUPLICATE_POSTING,HIGH,SL,,S000298,,10953,C042,,17900.17,,17900.17,2,71,Same reference and amount already posted once in SL (S000274). Pending analyst review.
+E0007,TIMING,HIGH,BANK SL GL,B000229,S000237,G000596,10868,C027,16088.16,16088.16,16088.16,16088.16,23,76,Ties across all three systems but dates span 23 days (tolerance 7). Pending analyst review.
+E0008,MISSING_IN_BANK,HIGH,SL GL,,S001273,G001251,10480,C019,,15841.22,15841.22,15841.22,0,19,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0009,MISSING_IN_BANK,HIGH,SL GL,,S000967,G000954,10288,C038,,12177.35,12177.35,12177.35,0,35,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0010,MISSING_IN_BANK,HIGH,SL GL,,S000084,G000076,10540,C018,,12095.16,12095.16,12095.16,1,83,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0011,MISSING_IN_GL,HIGH,BANK SL ,B000425,S000420,,10326,C059,12054.05,12054.05,,12054.05,1,65,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0012,MISSING_IN_GL,HIGH,BANK SL ,B000547,S000588,,10329,C050,11793.65,11793.65,,11793.65,2,57,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0013,DUPLICATE_POSTING,HIGH,SL,,S001077,,11139,C040,,10864.06,,10864.06,1,29,Same reference and amount already posted once in SL (S001052). Pending analyst review.
+E0014,TIMING,HIGH,BANK SL GL,B000914,S000948,G001131,10445,C027,10193.49,10193.49,10193.49,10193.49,13,38,Ties across all three systems but dates span 13 days (tolerance 7). Pending analyst review.
+E0015,MISSING_IN_GL,HIGH,BANK SL ,B001386,S001371,,10933,C035,9954.2,9954.2,,9954.2,0,13,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0016,DUPLICATE_POSTING,HIGH,SL,,S000310,,10993,C004,,9667.11,,9667.11,0,71,Same reference and amount already posted once in SL (S000307). Pending analyst review.
+E0017,MISSING_IN_GL,HIGH,BANK SL ,B000576,S000597,,10912,C060,9081.19,9081.19,,9081.19,1,55,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0018,MISSING_IN_BANK,HIGH,SL GL,,S000016,G000009,10365,C042,,8848.43,8848.43,8848.43,0,87,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0019,MISSING_IN_BANK,HIGH,SL GL,,S000465,G000438,10090,C054,,7840.34,7840.34,7840.34,0,62,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0020,TIMING,HIGH,BANK SL GL,B000179,S000215,G000579,10269,C034,6171.84,6171.84,6171.84,6171.84,26,79,Ties across all three systems but dates span 26 days (tolerance 7). Pending analyst review.
+E0021,MISSING_IN_GL,HIGH,BANK SL ,B000783,S000827,,10039,C041,6165.65,6165.65,,6165.65,3,46,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0022,GL_ONLY,HIGH,GL,,,G000865,10544,,,,5619.59,5619.59,0,39,GL entry with no matching bank credit or AR application. Pending analyst review.
+E0023,TIMING,HIGH,BANK SL GL,B000155,S000166,G000483,11063,C019,5495.96,5495.96,5495.97,5495.96,20,80,Ties across all three systems but dates span 20 days (tolerance 7). Pending analyst review.
+E0024,TIMING,HIGH,BANK SL GL,B000658,S000639,G001001,10318,C043,5240.76,5240.76,5240.76,5240.76,20,52,Ties across all three systems but dates span 20 days (tolerance 7). Pending analyst review.
+E0025,AMBIGUOUS_MATCH,HIGH,BANK ,B000976,,,,,5000.0,,,5000.0,0,35,Several possible counterparts on amount and date; deliberately not auto-matched. Pending analyst review.
+E0026,MISSING_IN_BANK,HIGH,SL GL,,S000936,G000908,10536,C059,,5000.0,5000.0,5000.0,0,37,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0027,MISSING_IN_BANK,HIGH,SL GL,,S000965,G000948,10566,C016,,5000.0,5000.0,5000.0,0,35,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0028,MISSING_IN_GL,MEDIUM,BANK SL ,B000133,S000157,,11125,C054,4850.79,4850.79,,4850.79,2,81,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0029,TIMING,MEDIUM,BANK SL GL,B001467,S001479,G001471,10383,C004,4764.95,4765.3,4765.3,4765.3,23,9,Ties across all three systems but dates span 23 days (tolerance 7). Pending analyst review.
+E0030,AMOUNT_MISMATCH,MEDIUM,BANK SL GL,B001084,S001074,G001047,10033,C048,11645.51,16145.51,11645.51,4500.0,0,29,Reference ties across all three systems but amounts differ by $4500.00 (tolerance $1.00). Pending analyst review.
+E0031,MISSING_IN_SL,MEDIUM,BANK GL,B001465,,G001461,11227,,4482.13,,4482.13,4482.13,3,9,In bank and GL; no AR subledger application found. Pending analyst review.
+E0032,TIMING,MEDIUM,BANK SL GL,B001159,S001209,G001468,11351,C052,4439.22,4439.22,4439.23,4439.22,21,25,Ties across all three systems but dates span 21 days (tolerance 7). Pending analyst review.
+E0033,MISSING_IN_SL,MEDIUM,BANK GL,B000166,,G000150,11402,,4307.23,,4307.73,4307.73,0,79,In bank and GL; no AR subledger application found. Pending analyst review.
+E0034,TIMING,MEDIUM,BANK SL GL,B000400,S000397,G000878,11311,C036,4244.35,4244.35,4244.35,4244.35,28,66,Ties across all three systems but dates span 28 days (tolerance 7). Pending analyst review.
+E0035,DUPLICATE_POSTING,MEDIUM,GL,,,G001078,10120,,,,4228.34,4228.34,0,28,Same reference and amount already posted once in GL (G001066). Pending analyst review.
+E0036,MISSING_IN_GL,MEDIUM,BANK SL ,B000171,S000156,,10550,C060,4154.48,4154.48,,4154.48,0,79,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0037,BANK_ONLY,MEDIUM,BANK ,B001168,,,11445,,4111.83,,,4111.83,0,25,Bank credit with no matching AR or GL record. Pending analyst review.
+E0038,DUPLICATE_POSTING,MEDIUM,GL,,,G000433,10471,,,,4042.96,4042.96,1,62,Same reference and amount already posted once in GL (G000416). Pending analyst review.
+E0039,MISSING_IN_SL,MEDIUM,BANK GL,B001361,,G001334,10344,,3941.83,,3941.83,3941.83,0,14,In bank and GL; no AR subledger application found. Pending analyst review.
+E0040,DUPLICATE_POSTING,MEDIUM,GL,,,G000975,11087,,,,3884.22,3884.22,2,33,Same reference and amount already posted once in GL (G000958). Pending analyst review.
+E0041,TIMING,MEDIUM,BANK SL GL,B000412,S000456,G000747,10608,C018,3866.74,3866.74,3866.74,3866.74,19,65,Ties across all three systems but dates span 19 days (tolerance 7). Pending analyst review.
+E0042,MISSING_IN_BANK,MEDIUM,SL GL,,S001132,G001133,10362,C028,,3826.2,3826.2,3826.2,1,26,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0043,MISSING_IN_SL,MEDIUM,BANK GL,B000630,,G000588,10775,,3603.25,,3603.25,3603.25,0,53,In bank and GL; no AR subledger application found. Pending analyst review.
+E0044,AMOUNT_MISMATCH,MEDIUM,BANK SL GL,B000690,S000684,G000673,10789,C029,2644.54,2644.79,6244.79,3600.25,1,50,Reference ties across all three systems but amounts differ by $3600.25 (tolerance $1.00). Pending analyst review.
+E0045,DUPLICATE_POSTING,MEDIUM,GL,,,G000970,10155,,,,3525.18,3525.18,1,34,Same reference and amount already posted once in GL (G000950). Pending analyst review.
+E0046,MISSING_IN_BANK,MEDIUM,SL GL,,S000091,G000063,10776,C004,,3495.07,3495.07,3495.07,0,83,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0047,MISSING_IN_GL,MEDIUM,BANK SL ,B001350,S001378,,10089,C043,3493.32,3493.82,,3493.82,2,15,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0048,MISSING_IN_SL,MEDIUM,BANK GL,B000127,,G000154,10180,,3401.69,,3401.69,3401.69,3,81,In bank and GL; no AR subledger application found. Pending analyst review.
+E0049,SL_ONLY,MEDIUM,SL ,,S000231,,10595,C056,,3309.03,,3309.03,0,76,AR application with no matching bank credit or GL entry. Pending analyst review.
+E0050,MISSING_IN_GL,MEDIUM,BANK SL ,B000582,S000571,,10779,C006,3242.12,3242.12,,3242.12,0,55,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0051,BANK_ONLY,MEDIUM,BANK ,B000602,,,10469,,3239.53,,,3239.53,0,54,Bank credit with no matching AR or GL record. Pending analyst review.
+E0052,MISSING_IN_GL,MEDIUM,BANK SL ,B000719,S000757,,10213,C010,3234.9,3234.9,,3234.9,2,49,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0053,MISSING_IN_GL,MEDIUM,BANK SL ,B000209,S000187,,11304,C018,2928.67,2928.67,,2928.67,0,77,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0054,AMOUNT_MISMATCH,MEDIUM,BANK SL GL,B001036,S001027,G001028,10660,C042,4151.93,1451.93,4151.93,2700.0,0,31,Reference ties across all three systems but amounts differ by $2700.00 (tolerance $1.00). Pending analyst review.
+E0055,MISSING_IN_BANK,MEDIUM,SL GL,,S000817,G000824,10009,C013,,2695.18,2695.18,2695.18,1,43,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0056,MISSING_IN_GL,MEDIUM,BANK SL ,B001254,S001263,,11486,C010,2629.84,2629.84,,2629.84,0,20,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0057,SL_ONLY,MEDIUM,SL ,,S000578,,11234,C040,,2552.72,,2552.72,0,55,AR application with no matching bank credit or GL entry. Pending analyst review.
+E0058,MISSING_IN_BANK,MEDIUM,SL GL,,S001398,G001429,10308,C037,,2546.16,2546.16,2546.16,3,12,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0059,MISSING_IN_SL,MEDIUM,BANK GL,B000857,,G000843,11056,,2535.31,,2535.31,2535.31,2,42,In bank and GL; no AR subledger application found. Pending analyst review.
+E0060,MISSING_IN_GL,MEDIUM,BANK SL ,B001345,S001393,,11411,C038,2528.8,2528.8,,2528.8,3,15,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0061,BANK_ONLY,MEDIUM,BANK ,B001458,,,11043,,2500.0,,,2500.0,0,9,Bank credit with no matching AR or GL record. Pending analyst review.
+E0062,MISSING_IN_SL,MEDIUM,BANK GL,B001228,,G001207,10659,,2500.0,,2500.0,2500.0,1,22,In bank and GL; no AR subledger application found. Pending analyst review.
+E0063,TIMING,MEDIUM,BANK SL GL,B000279,S000292,G000476,11095,C033,2480.93,2480.93,2480.93,2480.93,14,74,Ties across all three systems but dates span 14 days (tolerance 7). Pending analyst review.
+E0064,TIMING,MEDIUM,BANK SL GL,B000329,S000336,G000484,11159,C003,2443.93,2444.43,2444.43,2444.43,10,70,Ties across all three systems but dates span 10 days (tolerance 7). Pending analyst review.
+E0065,DUPLICATE_POSTING,MEDIUM,GL,,,G000286,11471,,,,2423.06,2423.06,1,71,Same reference and amount already posted once in GL (G000258). Pending analyst review.
+E0066,TIMING,MEDIUM,BANK SL GL,B000194,S000172,G000420,11045,C047,2390.65,2390.65,2390.65,2390.65,15,78,Ties across all three systems but dates span 15 days (tolerance 7). Pending analyst review.
+E0067,MISSING_IN_BANK,MEDIUM,SL GL,,S000205,G000185,10972,C009,,2305.17,2305.17,2305.17,0,77,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0068,MISSING_IN_BANK,MEDIUM,SL GL,,S000731,G000714,10537,C030,,2286.64,2286.64,2286.64,0,47,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0069,MISSING_IN_BANK,MEDIUM,SL GL,,S001115,G001094,10219,C035,,2273.76,2273.76,2273.76,1,27,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0070,TIMING,MEDIUM,BANK SL GL,B000407,S000392,G000839,10869,C056,2243.5,2243.5,2243.5,2243.5,25,66,Ties across all three systems but dates span 25 days (tolerance 7). Pending analyst review.
+E0071,DUPLICATE_POSTING,MEDIUM,SL,,S001094,,11092,C016,,2130.58,,2130.58,1,28,Same reference and amount already posted once in SL (S001075). Pending analyst review.
+E0072,BANK_ONLY,MEDIUM,BANK ,B001252,,,11001,,2121.28,,,2121.28,0,21,Bank credit with no matching AR or GL record. Pending analyst review.
+E0073,MISSING_IN_GL,MEDIUM,BANK SL ,B001030,S001070,,10017,C047,2110.34,2110.34,,2110.34,3,32,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0074,MISSING_IN_GL,MEDIUM,BANK SL ,B001401,S001433,,10133,C035,2039.04,2039.04,,2039.04,2,12,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0075,DUPLICATE_POSTING,MEDIUM,SL,,S001353,,11156,C021,,2000.0,,2000.0,1,14,Same reference and amount already posted once in SL (S001335). Pending analyst review.
+E0076,GL_ONLY,MEDIUM,GL,,,G001459,10029,,,,1951.41,1951.41,0,7,GL entry with no matching bank credit or AR application. Pending analyst review.
+E0077,BANK_ONLY,MEDIUM,BANK ,B000202,,,10268,,1930.57,,,1930.57,0,78,Bank credit with no matching AR or GL record. Pending analyst review.
+E0078,TIMING,MEDIUM,BANK SL GL,B000498,S000539,G000771,11137,C004,1895.94,1895.94,1895.94,1895.94,17,61,Ties across all three systems but dates span 17 days (tolerance 7). Pending analyst review.
+E0079,BANK_ONLY,MEDIUM,BANK ,B000130,,,11113,,1887.45,,,1887.45,0,81,Bank credit with no matching AR or GL record. Pending analyst review.
+E0080,MISSING_IN_BANK,MEDIUM,SL GL,,S000917,G000880,10842,C040,,1823.96,1823.96,1823.96,0,38,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0081,MISSING_IN_GL,MEDIUM,BANK SL ,B000835,S000841,,10983,C054,1693.19,1693.19,,1693.19,1,43,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0082,MISSING_IN_BANK,MEDIUM,SL GL,,S000487,G000485,11494,C025,,1683.23,1683.23,1683.23,1,61,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0083,MISSING_IN_SL,MEDIUM,BANK GL,B000898,,G000877,11444,,1614.43,,1614.43,1614.43,1,39,In bank and GL; no AR subledger application found. Pending analyst review.
+E0084,MISSING_IN_BANK,MEDIUM,SL GL,,S000057,G000080,11213,C060,,1593.55,1593.55,1593.55,2,84,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0085,MISSING_IN_SL,MEDIUM,BANK GL,B000856,,G000861,10229,,1559.28,,1559.28,1559.28,3,42,In bank and GL; no AR subledger application found. Pending analyst review.
+E0086,MISSING_IN_BANK,MEDIUM,SL GL,,S001269,G001263,11493,C011,,1500.0,1500.0,1500.0,0,19,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0087,TIMING,MEDIUM,BANK SL GL,B001421,S001473,G001472,10826,C043,1500.0,1500.0,1500.0,1500.0,25,11,Ties across all three systems but dates span 25 days (tolerance 7). Pending analyst review.
+E0088,GL_ONLY,MEDIUM,GL,,,G000918,11123,,,,1484.04,1484.04,0,36,GL entry with no matching bank credit or AR application. Pending analyst review.
+E0089,MISSING_IN_BANK,MEDIUM,SL GL,,S000661,G000647,11262,C033,,1318.71,1318.71,1318.71,0,51,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0090,BANK_ONLY,MEDIUM,BANK ,B000736,,,10350,,1318.52,,,1318.52,0,48,Bank credit with no matching AR or GL record. Pending analyst review.
+E0091,MISSING_IN_SL,MEDIUM,BANK GL,B000622,,G000663,11427,,1302.02,,1302.02,1302.02,3,53,In bank and GL; no AR subledger application found. Pending analyst review.
+E0092,SL_ONLY,MEDIUM,SL ,,S000503,,10556,C049,,1272.62,,1272.62,0,60,AR application with no matching bank credit or GL entry. Pending analyst review.
+E0093,DUPLICATE_POSTING,MEDIUM,GL,,,G000638,10979,,,,1206.62,1206.62,2,51,Same reference and amount already posted once in GL (G000595). Pending analyst review.
+E0094,MISSING_IN_GL,MEDIUM,BANK SL ,B000058,S000069,,11334,C010,1172.76,1173.51,,1173.51,1,85,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0095,MISSING_IN_GL,MEDIUM,BANK SL ,B000493,S000525,,10943,C013,1164.73,1164.73,,1164.73,2,61,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0096,TIMING,MEDIUM,BANK SL GL,B000301,S000308,G000690,10528,C022,1146.84,1146.84,1146.84,1146.84,24,72,Ties across all three systems but dates span 24 days (tolerance 7). Pending analyst review.
+E0097,MISSING_IN_SL,MEDIUM,BANK GL,B001398,,G001407,11223,,1137.54,,1137.54,1137.54,2,12,In bank and GL; no AR subledger application found. Pending analyst review.
+E0098,BANK_ONLY,MEDIUM,BANK ,B000186,,,10714,,1136.64,,,1136.64,0,79,Bank credit with no matching AR or GL record. Pending analyst review.
+E0099,DUPLICATE_POSTING,MEDIUM,GL,,,G000537,10835,,,,1134.43,1134.43,1,56,Same reference and amount already posted once in GL (G000520). Pending analyst review.
+E0100,MISSING_IN_BANK,MEDIUM,SL GL,,S000566,G000542,10618,C035,,1114.47,1114.47,1114.47,0,56,In AR subledger and GL; no matching bank credit found. Pending analyst review.
+E0101,MISSING_IN_GL,MEDIUM,BANK SL ,B001319,S001343,,10371,C005,1094.17,1094.17,,1094.17,1,16,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0102,MISSING_IN_GL,MEDIUM,BANK SL ,B001110,S001110,,10352,C027,1067.44,1067.44,,1067.44,0,27,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0103,TIMING,MEDIUM,BANK SL GL,B001044,S001042,G001185,10786,C022,1062.81,1062.81,1062.81,1062.81,9,31,Ties across all three systems but dates span 9 days (tolerance 7). Pending analyst review.
+E0104,DUPLICATE_POSTING,MEDIUM,GL,,,G001293,10292,,,,1059.66,1059.66,2,16,Same reference and amount already posted once in GL (G001270). Pending analyst review.
+E0105,AMOUNT_MISMATCH,LOW,BANK SL GL,B000794,S000851,G000847,10153,C045,1046.63,1046.63,146.63,900.0,5,45,Reference ties across all three systems but amounts differ by $900.00 (tolerance $1.00). Pending analyst review.
+E0106,AMOUNT_MISMATCH,LOW,BANK SL GL,B000611,S000603,G000575,11100,C038,5996.56,5097.08,5996.56,899.48,0,54,Reference ties across all three systems but amounts differ by $899.48 (tolerance $1.00). Pending analyst review.
+E0107,SL_ONLY,LOW,SL ,,S000358,,10049,C048,,835.48,,835.48,0,68,AR application with no matching bank credit or GL entry. Pending analyst review.
+E0108,MISSING_IN_GL,LOW,BANK SL ,B000710,S000726,,10715,C016,824.12,824.12,,824.12,1,49,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0109,TIMING,LOW,BANK SL GL,B001348,S001330,G001470,10968,C051,786.4,786.4,786.4,786.4,28,15,Ties across all three systems but dates span 28 days (tolerance 7). Pending analyst review.
+E0110,DUPLICATE_POSTING,LOW,GL,,,G000237,11200,,,,750.0,750.0,1,74,Same reference and amount already posted once in GL (G000217). Pending analyst review.
+E0111,SL_ONLY,LOW,SL ,,S000693,,10154,C018,,750.0,,750.0,0,50,AR application with no matching bank credit or GL entry. Pending analyst review.
+E0112,AMOUNT_MISMATCH,LOW,BANK SL GL,B000524,S000514,G000511,11066,C025,6848.88,7533.77,6848.88,684.89,1,59,Reference ties across all three systems but amounts differ by $684.89 (tolerance $1.00). Pending analyst review.
+E0113,MISSING_IN_GL,LOW,BANK SL ,B001342,S001391,,10504,C019,574.55,574.55,,574.55,3,15,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0114,GL_ONLY,LOW,GL,,,G001232,10395,,,,530.16,530.16,0,20,GL entry with no matching bank credit or AR application. Pending analyst review.
+E0115,MISSING_IN_GL,LOW,BANK SL ,B001198,S001235,,10559,C044,500.0,500.0,,500.0,2,23,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0116,MISSING_IN_GL,LOW,BANK SL ,B000445,S000455,,11128,C021,449.76,449.76,,449.76,1,64,In bank and AR subledger; no GL entry within tolerance. Pending analyst review.
+E0117,TIMING,LOW,BANK SL GL,B000952,S000961,G001189,10437,C045,449.7,449.7,449.7,449.7,14,36,Ties across all three systems but dates span 14 days (tolerance 7). Pending analyst review.
+E0118,DUPLICATE_POSTING,LOW,SL,,S001237,,11220,C026,,388.0,,388.0,1,21,Same reference and amount already posted once in SL (S001208). Pending analyst review.
+E0119,AMOUNT_MISMATCH,LOW,BANK SL GL,B001135,S001142,G001138,10950,C055,3498.32,3498.32,3148.49,349.83,2,26,Reference ties across all three systems but amounts differ by $349.83 (tolerance $1.00). Pending analyst review.
+E0120,AMOUNT_MISMATCH,LOW,BANK SL GL,B000142,S000155,G000135,10394,C024,3281.73,3609.9,3281.73,328.17,2,81,Reference ties across all three systems but amounts differ by $328.17 (tolerance $1.00). Pending analyst review.
+E0121,AMOUNT_MISMATCH,LOW,BANK SL GL,B000405,S000393,G000377,11174,C015,3033.74,3033.74,3337.11,303.37,1,66,Reference ties across all three systems but amounts differ by $303.37 (tolerance $1.00). Pending analyst review.
+E0122,AMOUNT_MISMATCH,LOW,BANK SL GL,B000455,S000454,G000423,11244,C047,1629.57,1629.57,1385.13,244.44,1,63,Reference ties across all three systems but amounts differ by $244.44 (tolerance $1.00). Pending analyst review.
+E0123,AMOUNT_MISMATCH,LOW,BANK SL GL,B000311,S000321,G000297,10045,C023,3307.78,3473.17,3307.78,165.39,2,72,Reference ties across all three systems but amounts differ by $165.39 (tolerance $1.00). Pending analyst review.
+E0124,AMOUNT_MISMATCH,LOW,BANK SL GL,B001147,S001176,G001142,10215,C028,2500.0,2500.0,2375.0,125.0,2,26,Reference ties across all three systems but amounts differ by $125.00 (tolerance $1.00). Pending analyst review.
+E0125,AMOUNT_MISMATCH,LOW,BANK SL GL,B000095,S000082,G000106,10931,C057,4348.64,4344.14,4348.64,4.5,2,83,Reference ties across all three systems but amounts differ by $4.50 (tolerance $1.00). Pending analyst review.
+E0126,AMOUNT_MISMATCH,LOW,BANK SL GL,B001264,S001274,G001288,10427,C046,672.51,668.51,672.51,4.0,3,20,Reference ties across all three systems but amounts differ by $4.00 (tolerance $1.00). Pending analyst review.
+E0127,AMOUNT_MISMATCH,LOW,BANK SL GL,B000158,S000153,G000145,10686,C022,9328.33,9324.83,9328.34,3.51,1,80,Reference ties across all three systems but amounts differ by $3.51 (tolerance $1.00). Pending analyst review.
+E0128,AMOUNT_MISMATCH,LOW,BANK SL GL,B001395,S001421,G001405,10381,C003,7006.87,7006.87,7003.37,3.5,2,12,Reference ties across all three systems but amounts differ by $3.50 (tolerance $1.00). Pending analyst review.
+E0129,AMOUNT_MISMATCH,LOW,BANK SL GL,B001212,S001257,G001267,10866,C028,2147.79,2147.79,2144.79,3.0,3,22,Reference ties across all three systems but amounts differ by $3.00 (tolerance $1.00). Pending analyst review.
+E0130,AMOUNT_MISMATCH,LOW,BANK SL GL,B001417,S001446,G001412,10095,C042,3914.63,3914.63,3912.13,2.5,1,11,Reference ties across all three systems but amounts differ by $2.50 (tolerance $1.00). Pending analyst review.

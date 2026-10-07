@@ -1,0 +1,14 @@
+{
+  "seeded_total": 128,
+  "detected_correctly": 128,
+  "recall": 1.0,
+  "exceptions": 130,
+  "false_exceptions": 2,
+  "false_by_type": {
+    "MISSING_IN_BANK": 1,
+    "AMBIGUOUS_MATCH": 1
+  },
+  "precision": 0.9846,
+  "mispaired_clean_units": 0,
+  "auto_match_rate": 0.9403
+}

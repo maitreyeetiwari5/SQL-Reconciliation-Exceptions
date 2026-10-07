@@ -1,0 +1,10 @@
+{
+  "total_rows": 4425,
+  "auto_matched_rows": 4161,
+  "auto_match_rate": 0.9403,
+  "units": 1501,
+  "clean_units": 1387,
+  "exceptions": 130,
+  "exposure": 555309.59,
+  "duplicate_rows": 16
+}
