@@ -2,7 +2,7 @@
 
 A SQL matching engine that ties customer cash receipts across three systems (bank statement, AR subledger, general ledger), clears what agrees, and turns everything else into a ranked, explained exception queue. Built to show what automating the mechanical part of a reconciliation looks like, and where the engine deliberately stops and hands a case to an analyst.
 
-**[Live dashboard](https://maitreyeetiwari5.github.io/SQL-Reconciliation-Exceptions)** - filter the exception queue by type and severity, expand any item to see what each system holds, and see the tolerance trade-off behind the settings.
+**[Live dashboard](https://maitreyeetiwari5.github.io/SQL-Reconciliation-Exceptions/)** - filter the exception queue by type and severity, expand any item to see what each system holds, and see the tolerance trade-off behind the settings.
 
 **[Excel report](reconciliation_report.xlsx)** - the same results as a reviewer's workbook: summary (all formulas), exception queue with status columns, and the tolerance sensitivity table.
 
